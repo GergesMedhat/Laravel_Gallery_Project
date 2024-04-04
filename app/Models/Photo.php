@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Photo extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'album_id'];
+    protected $fillable = ['name', 'image', 'album_id'];
 
     function album()
     {
