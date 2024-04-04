@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreAlbumRequest;
+use App\Http\Requests\UpdateAlbumRequest;
 use Illuminate\Http\Request;
 use App\Models\Album;
 
@@ -19,7 +21,7 @@ class AlbumController extends Controller
         return view('album.create');
     }
 
-    public function store(Request $request)
+    public function store(StoreAlbumRequest $request)
     {
         $album = new Album();
         $album->name = $request->name;
@@ -37,7 +39,7 @@ class AlbumController extends Controller
         return view('album.edit', ['album' => $album]);
     }
 
-    public function update(Request $request, Album $album)
+    public function update(UpdateAlbumRequest $request, Album $album)
     {
         $album->name = $request->name;
         $album->save();
